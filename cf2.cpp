@@ -28,28 +28,29 @@ mt19937                 rng(chrono::steady_clock::now().time_since_epoch().count
 
 //typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_update> pbds;
 
-// Problem Link: http://codeforces.com/problemset/problem/459/A
+// Problem Link: 
 
 int32_t main()
 {
 	FIO;
-	int x1, y1, x2, y2;
-    cin>>x1>>y1>>x2>>y2;
-    if (x1 != x2 && y1 != y2 && abs(x1 - x2) != abs(y1 - y2)){
-        cout << -1 << endl;
-    }
-    else if (y1 == y2){
-        cout << x1 << " " << y1 + abs(x1 - x2) << " " << x2 << " " << y2 + abs(x1 - x2) << endl;
-    }
-    else if (x1 == x2){
-        cout << x1 + abs(y1 - y2) << " " << y1 << " " << x2 + abs(y1 - y2) << " " << y2 << endl;
-    }
-    else{
-        cout << x1 << " " << y2 << " " << x2 << " " << y1 << endl;
-    }
+	int t; cin>>t;
+	while(t--){
+		string s; cin>>s;
+		int num0=0, num1=0;
+		int ans=0;
+		for(char c:s){
+			if(c=='0')num0++;
+			else num1++;
+		}
+		 if(num0==num1 && s.length()>2){
+		 	if(s.back()=='1')ans=min(num0,num1-1);
+		 	else ans=min(num0-1,num1);
+		 }else if(num0==num1 && s.length()==2)ans=0;
+		 else{
+		 	ans=min(num0,num1);
+		 }
+		cout<<ans<<endl;
+	}
 
 	return 0;
 }
-
-
-

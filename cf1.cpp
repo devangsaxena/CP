@@ -28,28 +28,26 @@ mt19937                 rng(chrono::steady_clock::now().time_since_epoch().count
 
 //typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_update> pbds;
 
-// Problem Link: http://codeforces.com/problemset/problem/459/A
+// Problem Link: 
 
 int32_t main()
 {
 	FIO;
-	int x1, y1, x2, y2;
-    cin>>x1>>y1>>x2>>y2;
-    if (x1 != x2 && y1 != y2 && abs(x1 - x2) != abs(y1 - y2)){
-        cout << -1 << endl;
-    }
-    else if (y1 == y2){
-        cout << x1 << " " << y1 + abs(x1 - x2) << " " << x2 << " " << y2 + abs(x1 - x2) << endl;
-    }
-    else if (x1 == x2){
-        cout << x1 + abs(y1 - y2) << " " << y1 << " " << x2 + abs(y1 - y2) << " " << y2 << endl;
-    }
-    else{
-        cout << x1 << " " << y2 << " " << x2 << " " << y1 << endl;
-    }
+	int t; cin>>t;
+	while(t--){
+		int n; cin>>n;
+		if(n%7==0) cout<<n<<endl;
+		else{
+			int rem1=(n/10)*10, rem2=n+10-n%10;
+			for(int j=rem1;j<=rem2;j++){
+				if(j%7==0 && j%10!=0){
+					cout<<j<<endl;
+					break;
+				}
+			}
+		}
+		
+	}
 
 	return 0;
 }
-
-
-
